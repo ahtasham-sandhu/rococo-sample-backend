@@ -99,7 +99,7 @@ class AuthService:
         """Generate password reset URL for forgot password flow."""
         token = self.generate_reset_password_token(login_method, email)
         uid = urlsafe_base64_encode(force_bytes(login_method.entity_id))
-        password_reset_url = self.config.VUE_APP_URI + "/reset-password/" + token + "/" + uid
+        password_reset_url = self.config.VUE_APP_URI + "/set-password/" + token + "/" + uid
         return password_reset_url
 
     def send_welcome_email(self, login_method: LoginMethod, person: Person, email: str):
